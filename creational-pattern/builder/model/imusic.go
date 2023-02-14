@@ -1,6 +1,6 @@
 package model
 
-// 定义产品，产品应该都有个接口类
+// 定义产品
 
 type IMusic interface {
     Play()
