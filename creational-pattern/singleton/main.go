@@ -2,8 +2,7 @@ package main
 
 import (
     "fmt"
-    "github.com/BingguWang/go-design-pattern/create-pattern/singleton/model"
-
+    "github.com/BingguWang/design-pattern-study/creational-pattern/singleton/model"
     "sync"
 )
 
