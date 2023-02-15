@@ -12,3 +12,5 @@ func (m *MobileWithGame) Function() {
     m.Mobile.Function()
     fmt.Println("play games")
 }
+
+// 可以看到其实还是一种类似子类的方式，只是是聚合的方式实现的
