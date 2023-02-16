@@ -8,11 +8,11 @@ type Cashier struct {
 }
 
 func (c *Cashier) Handle(client *Client) {
-    fmt.Println("Cashier handling...")
-    if client.paymentDone {
+    if client.paymentDone { // 保证只执行一次
         c.Next.Handle(client)
         return
     }
+    fmt.Println("Cashier handling...")
     client.paymentDone = true
     c.Next.Handle(client)
 }

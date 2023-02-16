@@ -16,8 +16,8 @@ func main() {
 
     // 创建doctor中间件
     doctor := &model2.Doctor{}
-    reception := &model2.Reception{}
     drugstore := &model2.Drugstore{}
+    reception := &model2.Reception{}
     cashier := &model2.Cashier{}
     finish := &model2.Finish{}
 
@@ -31,6 +31,9 @@ func UseMiddleware(handlers ...model2.Handler) model2.Handler {
     for i := 0; i < len(handlers)-1; i++ {
         handlers[i].SetNext(handlers[i+1])
     }
+
+    // gin里把这个handlers数组作为context的成员 handlers
+
     return handlers[0]
 }
 func Exec(handler model2.Handler, client *model2.Client) {

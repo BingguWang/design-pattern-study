@@ -8,11 +8,11 @@ type Doctor struct {
 }
 
 func (c *Doctor) Handle(client *Client) {
-    fmt.Println("Doctor handling...")
-    if client.doctorCheckUpDone {
+    if client.doctorCheckUpDone { // 保证只执行一次
         c.Next.Handle(client)
         return
     }
+    fmt.Println("Doctor handling...")
     client.doctorCheckUpDone = true
     c.Next.Handle(client)
 }

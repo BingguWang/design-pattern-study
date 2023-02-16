@@ -8,11 +8,11 @@ type Reception struct {
 }
 
 func (c *Reception) Handle(client *Client) {
-    fmt.Println("Reception handling...")
-    if client.registrationDone {
+    if client.registrationDone { // 保证只执行一次
         c.Next.Handle(client)
         return
     }
+    fmt.Println("Reception handling...")
     client.registrationDone = true
     c.Next.Handle(client)
 }
